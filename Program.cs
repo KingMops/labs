@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ConsoleApplication1
 {
@@ -15,13 +15,12 @@ namespace ConsoleApplication1
         }
 
         // Метод ввода параметров класаа
-        // Прямоугольник задается координатами левой нижней точки и шириной/высотой
         public void enter()
         {
-            Console.Write("Введите координату 'x' левой нижней точки прямоугольника: ");
+            Console.Write("Введите координату 'x' прямоугольника: ");
             X = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Введите координату 'y' левой нижней точки прямоугольника: ");
+            Console.Write("Введите координату 'y' прямоугольника: ");
             Y = Convert.ToDouble(Console.ReadLine());
 
             Console.Write("Введите ширину прямоугольника: ");
@@ -67,6 +66,13 @@ namespace ConsoleApplication1
         {
             Width += width;
             Height += height;
+        }
+
+        // Метод изменения размеров
+        public void Resize(double c)
+        {
+            Width *= c;
+            Height *= c;
         }
 
         // Метод построения прямоугольника r, получаемый пересечением прямоугольников r1 и r2
@@ -193,26 +199,20 @@ namespace ConsoleApplication1
                     // если выбран 7 пункт меню
                     case "7":
                         {
-                            Console.Write("Введите сколько прибавить к ширине: ");
-                            double w_plus = Convert.ToDouble(Console.ReadLine());
+                            Console.Write("Введите коэффициент: ");
+                            double c = Convert.ToDouble(Console.ReadLine());
 
-                            Console.Write("Введите сколько прибавить к высоте: ");
-                            double h_plus = Convert.ToDouble(Console.ReadLine());
-
-                            r1.Resize(w_plus, h_plus);
+                            r1.Resize(c);
                             break;
                         }
 
                     // если выбран 8 пункт меню
                     case "8":
                         {
-                            Console.Write("Введите сколько прибавить к ширине: ");
-                            double w_plus = Convert.ToDouble(Console.ReadLine());
+                            Console.Write("Введите коэффициент: ");
+                            double c = Convert.ToDouble(Console.ReadLine());
 
-                            Console.Write("Введите сколько прибавить к высоте: ");
-                            double h_plus = Convert.ToDouble(Console.ReadLine());
-
-                            r2.Resize(w_plus, h_plus);
+                            r2.Resize(c);
                             break;
                         }
 
